@@ -1,3 +1,6 @@
 /images/
 test/*
 .idea/
+working_copy/
+.DS_Store
+venv/
