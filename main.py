@@ -16,7 +16,6 @@ import platform
 import netmiko
 import openpyxl
 import optparse
-import textfsm
 
 INPUT_FILE_NAME = "GetInventory - Default.xlsx"
 
@@ -290,7 +289,7 @@ def gather_route(connection, net_dev, count):
         vrf_string = ""
         if vrf != "global":
             vrf_string = " vrf " + vrf
-        command = "show route" + vrf_string
+        command = "show ip route" + vrf_string
         output = log_cmd_textfsm(connection, net_dev, command, count)
         if isinstance(output, list):
             for route in output:
