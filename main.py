@@ -172,7 +172,10 @@ def gather_interface(connection, net_dev, count):
     log_cmd_textfsm(connection, net_dev, command, count)
     log_cmd_textfsm(connection, net_dev, command2, count)
     trunks = {}
-    vrf_info = get_vrf_interfaces_dict(net_dev, connection, count)
+    try:
+        vrf_info = get_vrf_interfaces_dict(net_dev, connection, count)
+    except Exception as e:
+        vrf_info = []
 
     output = net_dev.show_output_json[command].copy()
     output2 = net_dev.show_output_json[command2]
